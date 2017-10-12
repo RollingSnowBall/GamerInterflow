@@ -1,4 +1,4 @@
-package com.demo.common.model;
+package com.strongpoint.tool;
 
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 
@@ -13,10 +13,10 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
  * }
  * </pre>
  */
-public class _MappingKit {
+public class MappingKit {
 
 	public static void mapping(ActiveRecordPlugin arp) {
-		arp.addMapping("blog", "id", Blog.class);
+//		arp.addMapping("blog", "id", Blog.class);
 	}
 }
 
