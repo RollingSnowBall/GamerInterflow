@@ -1,5 +1,6 @@
 package com.strongpoint.common;
 
+import com.demo.blog.BlogController;
 import com.demo.common.model._MappingKit;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
