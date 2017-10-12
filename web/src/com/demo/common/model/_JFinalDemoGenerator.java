@@ -1,11 +1,11 @@
 package com.demo.common.model;
 
 import javax.sql.DataSource;
+import com.demo.common.DemoConfig;
 import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.generator.Generator;
 import com.jfinal.plugin.druid.DruidPlugin;
-import com.strongpoint.common.StartConfig;
 
 /**
  * 本 demo 仅表达最为粗浅的 jfinal 用法，更为有价值的实用的企业级用法
@@ -17,7 +17,7 @@ public class _JFinalDemoGenerator {
 	
 	public static DataSource getDataSource() {
 		PropKit.use("a_little_config.txt");
-		DruidPlugin druidPlugin = StartConfig.createDruidPlugin();
+		DruidPlugin druidPlugin = DemoConfig.createDruidPlugin();
 		druidPlugin.start();
 		return druidPlugin.getDataSource();
 	}
