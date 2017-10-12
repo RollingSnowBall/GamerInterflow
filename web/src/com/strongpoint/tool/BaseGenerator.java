@@ -29,7 +29,7 @@ public class BaseGenerator {
 		String baseModelOutputDir = PathKit.getWebRootPath() + "/../src/com/strongpoint/common/model/base";
 		
 		// model 所使用的包名 (MappingKit 默认使用的包名)
-		String modelPackageName = "com.strongpoint.common.concrete";
+		String modelPackageName = "com.strongpoint.common.model";
 		// model 文件保存路径 (MappingKit 与 DataDictionary 文件默认保存路径)
 		String modelOutputDir = baseModelOutputDir + "/..";
 		

@@ -1,7 +1,6 @@
 package com.strongpoint.common;
 
 import com.demo.blog.BlogController;
-import com.demo.common.model._MappingKit;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -13,6 +12,7 @@ import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.template.Engine;
+import com.strongpoint.common.model._MappingKit;
 import com.strongpoint.pageController.LoginController;
 
 public class StartConfig  extends JFinalConfig {
