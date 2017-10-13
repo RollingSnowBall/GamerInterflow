@@ -6,9 +6,31 @@
 <script src="/js/jquery-1.4.4.min.js" type="text/javascript" ></script>
 </head>
 <body>
-	id: <input type="text" name="id" />
-	  pass: <input type="text" name="pass" />
-	  <button type="button">register</button>
-	  <button type="button">login</button>
+	  id: <input id="id" type="text" name="id" />
+	  pass: <input id="pass" type="text" name="pass" />
+	  <a id="register" >注册</a>
+	  <a id="login" >登录</a>
+	  
 </body>
+<script type="text/javaScript">
+	$(function(){
+		//获取输入框数据			
+		function getdata(){
+			var id = $("#id").val();
+			var pass = $("#pass").val();
+			var map = { "id" : id, "pass": pass };
+			return map;
+		}
+		//注册行为
+		$("#register").click(function(){
+			var data = getdata();
+			window.location.href="/addUser?id="+data.id+"&pass="+data.pass;			
+		})
+		//登录行为
+		$("#login").click(function(){
+			var data = getdata();
+			window.location.href="/loginUser?id="+data.id+"&pass="+data.pass;			
+		})
+	})
+</script>
 </html>
