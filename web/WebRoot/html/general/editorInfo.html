@@ -1,3 +1,33 @@
 #define editorInfoPage()
 编辑个人信息
+	<div>
+		#for(x : NickNameList)
+			<div>
+				#(x.nickName)
+			</div>
+		#end
+	</div>
+	
+	<div>
+		昵称:<input id="nickInPut"type="text" name="nick"/>
+		<button id="addNickName">添加昵称</button>
+	</div>
+
+<script type="text/javaScript">
+	$(function(){
+		//获取输入框数据			
+		function getdata(){
+			var nickName = $("#nickInPut").val();
+			var map = { "nickName" : nickName };
+			return map;
+		}
+		//注册行为
+		$("#addNickName").click(function(){
+			var data = getdata();
+			window.location.href="/work/addNickName?nickName="+data.nickName;			
+		})
+	})
+</script>
+	
+		
 #end
