@@ -37,9 +37,11 @@ public class LoginController extends Controller  {
 		String pass = getPara("pass");
 		User selfInfo = service.findById(id);
 		if(selfInfo != null) {
-			((UserManager)Singleton.getInstance(UserManager.class)).setSelfInfo(id, pass);
-			redirect("/work");
-			return;
+			if (selfInfo.getPass().equals(pass)) {
+				((UserManager)Singleton.getInstance(UserManager.class)).setSelfInfo(id, pass);
+				redirect("/work");
+				return;
+			}
 		}
 		String msg = "账号密码错误重新输入";
 		setAttr("LoginWarn", msg);
