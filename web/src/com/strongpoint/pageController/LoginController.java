@@ -2,6 +2,8 @@ package com.strongpoint.pageController;
 
 import com.jfinal.core.Controller;
 import com.strongpoint.common.model.User;
+import com.strongpoint.manager.Singleton;
+import com.strongpoint.manager.UserManager;
 import com.strongpoint.service.LoginService;
 
 public class LoginController extends Controller  {
@@ -12,23 +14,34 @@ public class LoginController extends Controller  {
 		render("login.html");
 	}
 	
-	public void addUser() {
+	public void addUser() throws Exception {
 		Integer id = getParaToInt("id");
 		String pass = getPara("pass");
-//		getModel(User.class)
 		System.out.println("LoginController addUser : id : " + id + " pass : " + pass);
 		
-		(new User(id, pass)).save();
-		
-		render("login.html");
+		User self = service.findById(id);
+		if(self != null) {
+			String msg = "账号密码错误重新输入";
+			service.findById(id);
+			setAttr("LoginWarn", msg);
+			render("login.html");
+			return;
+		}
+		((UserManager)Singleton.getInstance(UserManager.class)).setSelfInfo(id, pass);
+		((UserManager)Singleton.getInstance(UserManager.class)).getSelfInfo().save();
+;		redirect("/work");
 	}
 	
-	public void loginUser() {
-		String msg = "账号密码错误重新输入";
-//		getModel(User.class)
-		System.out.println("++++++++++++++++");
+	public void loginUser() throws Exception {
 		Integer id = getParaToInt("id");
-		service.findById(id);
+		String pass = getPara("pass");
+		User selfInfo = service.findById(id);
+		if(selfInfo != null) {
+			((UserManager)Singleton.getInstance(UserManager.class)).setSelfInfo(id, pass);
+			redirect("/work");
+			return;
+		}
+		String msg = "账号密码错误重新输入";
 		setAttr("LoginWarn", msg);
 		render("login.html");
 	}

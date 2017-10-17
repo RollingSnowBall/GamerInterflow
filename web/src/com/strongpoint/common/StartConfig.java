@@ -14,6 +14,7 @@ import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.template.Engine;
 import com.strongpoint.common.model._MappingKit;
 import com.strongpoint.pageController.LoginController;
+import com.strongpoint.pageController.WorkController;
 
 public class StartConfig  extends JFinalConfig {
 	
@@ -53,6 +54,7 @@ public class StartConfig  extends JFinalConfig {
 //		me.add("/blog", BlogController.class);			// 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
 		
 		me.add("/", LoginController.class, "/html/common");
+		me.add("/work", WorkController.class, "/html/common");
 	}
 	
 	public void configEngine(Engine me) {
