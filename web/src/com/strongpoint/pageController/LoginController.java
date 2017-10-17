@@ -21,10 +21,10 @@ public class LoginController extends Controller  {
 		
 		User self = service.findById(id);
 		if(self != null) {
-			String msg = "账号密码错误重新输入";
+			String msg = "用户已存在";
 			service.findById(id);
 			setAttr("LoginWarn", msg);
-			render("login.html");
+			render("Login.html");
 			return;
 		}
 		((UserManager)Singleton.getInstance(UserManager.class)).setSelfInfo(id, pass);
@@ -45,6 +45,6 @@ public class LoginController extends Controller  {
 		}
 		String msg = "账号密码错误重新输入";
 		setAttr("LoginWarn", msg);
-		render("login.html");
+		render("Login.html");
 	}
 }

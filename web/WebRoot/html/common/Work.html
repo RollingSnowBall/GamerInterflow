@@ -15,15 +15,15 @@
 		<button id="createTeam" style="height:50px;width:30%;float:right;">创建团队</button>
 	</div>
 	<div style="background-color:#EEEEEE;height:200px;width:40%;float:left;">
-		#if(WorkInfo.type == 1)
+		#if((WorkInfo.type) == 1)
 			#@editorInfoPage()
-		#elseif(WorkInfo.type == 2)
+		#elseif((WorkInfo.type) == 2)
 			#@editorGameTimePage()
-		#elseif(WorkInfo.type == 3)
+		#elseif((WorkInfo.type) == 3)
 			#@createTeamPage()
 		#else
 			空白页面
-		end 
+		#end
 	</div>
 </body>
 </html>
