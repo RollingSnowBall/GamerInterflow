@@ -3,7 +3,6 @@ package com.strongpoint.pageController;
 import com.jfinal.core.Controller;
 import com.strongpoint.common.model.User;
 import com.strongpoint.manager.Singleton;
-import com.strongpoint.manager.UserManager;
 import com.strongpoint.service.LoginService;
 
 public class LoginController extends Controller  {
@@ -15,7 +14,7 @@ public class LoginController extends Controller  {
 	}
 	
 	public void addUser() throws Exception {
-		Integer id = getParaToInt("id");
+		Integer id = getParaToInt(CustomConstant.USER_ID);
 		String pass = getPara("pass");
 		System.out.println("LoginController addUser : id : " + id + " pass : " + pass);
 		
@@ -27,9 +26,10 @@ public class LoginController extends Controller  {
 			render("Login.html");
 			return;
 		}
-		((UserManager)Singleton.getInstance(UserManager.class)).setSelfInfo(id, pass);
-		((UserManager)Singleton.getInstance(UserManager.class)).getSelfInfo().save();
-;		redirect("/work");
+		
+		setSessionAttr(CustomConstant.USER_ID, id);
+		(new User(id, pass)).save();
+		redirect("/work");
 	}
 	
 	public void loginUser() throws Exception {
@@ -38,7 +38,7 @@ public class LoginController extends Controller  {
 		User selfInfo = service.findById(id);
 		if(selfInfo != null) {
 			if (selfInfo.getPass().equals(pass)) {
-				((UserManager)Singleton.getInstance(UserManager.class)).setSelfInfo(id, pass);
+				setSessionAttr(CustomConstant.USER_ID, id);
 				redirect("/work");
 				return;
 			}

@@ -2,7 +2,6 @@
 <html xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<link href="/css/manage.css" media="screen" rel="stylesheet" type="text/css" />
 <script src="/js/jquery-1.4.4.min.js" type="text/javascript" ></script>
 </head>
 <body>
@@ -11,13 +10,13 @@
 	
 	<div id="menu" style="background-color:#FFD700;height:200px;width:30%;float:left;">
 		<div style="width:100%;height:33%;">
-			<button id="editorInfo" style="height:100%;width:100%;">编辑个人信息</button>
+			<button id="refresh1"  data-type="1" style="height:100%;width:100%;">编辑个人信息</button>
 		</div>
 		<div style="width:100%;height:33%;">
-			<button id="editorGameTime" style="height:100%;width:100%;">今日登录时间</button>
+			<button id="refresh2"  data-type="2" style="height:100%;width:100%;">今日登录时间</button>
 		</div>
 		<div style="width:100%;height:34%;">
-			<button id="createTeam" style="height:100%;width:100%;">创建团队</button>
+			<button id="refresh3"  data-type="3" style="height:100%;width:100%;">创建团队</button>
 		</div>
 	</div>
 	<div style="background-color:#EEEEEE;height:200px;width:40%;float:left;">
@@ -32,4 +31,14 @@
 		#end
 	</div>
 </body>
+
+<script type="text/javaScript">
+$(function(){
+	//注册行为
+	$("#refresh1,#refresh2,#refresh3").click(function(){
+		window.location.href="/work/refreshPage?type="+$(this).attr("data-type");			
+	})
+})
+</script>
+
 </html>
