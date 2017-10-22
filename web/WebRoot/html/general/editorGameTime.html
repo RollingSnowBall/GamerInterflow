@@ -1,3 +1,23 @@
 #define editorGameTimePage()
 编辑游戏信息
+	<div id="list">
+		#for(x : NickNameList)
+			<div>
+				<input type="text" disable="disable" value="#(x.nickName)"/>
+				Time: <input type="text" value="time"/>
+				<button >保存</button>
+			</div> 
+		#end
+	</div>
+	<script type="text/javaScript">
+	$(function(){
+		$.each($("#list>div"),function(index,value){
+			var nickname = $($(this).find("input")[0]).val();
+			var time = $($(this).find("input")[1]).val();
+			$($(value).find("button")).click(function(){
+				window.location.href="/work/setGameTime?nickname="+nickname+"&time="+time;
+			});
+		});
+	})
+</script>
 #end

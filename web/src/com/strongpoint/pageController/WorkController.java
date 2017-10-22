@@ -22,7 +22,9 @@ public class WorkController extends Controller{
 	}
 	
 	public void index() throws Exception {
-		refreshNickNameListAndShow();
+//		refreshNickNameListAndShow();
+		showGameTime();
+		render("Work.html");
 	}
 	
 	public void refreshNickNameListAndShow() throws Exception {
@@ -30,7 +32,12 @@ public class WorkController extends Controller{
 		//setSessionAttr("WorkInfo", new WorkInfo());
 		Integer id = getSessionAttr(CustomConstant.USER_ID);
 		setAttr("NickNameList", NickService.getNickNameList(id));
-		render("Work.html");
+	}
+	
+	public void showGameTime() throws Exception {
+		setAttr("WorkInfo", new WorkInfo(CustomConstant.EDITOR_GAME_TIME_PAGE_INDEX));
+		Integer id = getSessionAttr(CustomConstant.USER_ID);
+		setAttr("NickNameList", NickService.getNickNameList(id));
 	}
 	
 	public void addNickName() throws Exception {
@@ -48,7 +55,15 @@ public class WorkController extends Controller{
 		setAttr("WorkInfo", new WorkInfo(tp));
 		if (tp == CustomConstant.EDITOR_NICKNAME_PAGE_INDEX) {
 			refreshNickNameListAndShow();
+		}else if(tp == CustomConstant.EDITOR_GAME_TIME_PAGE_INDEX) {
+			showGameTime();
 		}
 		render("Work.html");
+	}
+	
+	public void setGameTime() {
+		String nickname = getPara("nickname");
+		String time = getPara("time");
+		redirect("/work");
 	}
 }
