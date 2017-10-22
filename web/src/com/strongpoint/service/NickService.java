@@ -20,7 +20,29 @@ public class NickService {
 		name.save();
 	}
 	
+	public void timeUpdate(String nickName, String time) {
+		NickName name = new NickName();
+		name.setNickName(nickName);
+		name.setTime(time);
+		name.update();
+	}
+	
 	public static List<NickName> getNickNameList(Integer id) throws Exception {
 		return NickName.dao.find("select * from nickName where userId = ?", id);
+	}
+	
+	public NickName findByName(String name) {
+		return dao.findById("name");
+	}
+	
+	public static List<NickName> getAllNickNameLst(){
+		return NickName.dao.find("select * from nickName");
+	}
+	
+	public void deleteNickName(String name) {
+		NickName nickName = new NickName();
+		System.out.println(name);
+		nickName.setNickName(name);
+		nickName.delete();
 	}
 }

@@ -1,9 +1,10 @@
 #define editorInfoPage()
 个人角色列表
-	<div>
+	<div id="editorInfo">
 		#for(x : NickNameList)
 			<div>
-				#(x.nickName)
+				<input type="text" disable="disable" value="#(x.nickName)"/>
+				<button >删除</button>
 			</div>
 		#end
 	</div>
@@ -26,6 +27,15 @@
 			var data = getdata();
 			window.location.href="/work/addNickName?nickName="+data.nickName;			
 		})
+	})
+	
+	$(function(){
+		$.each($("#editorInfo>div"),function(index,value){
+			$($(value).find("button")).click(function(){
+				var nickname = $(this).prev("input").val();
+				window.location.href="/work/deleteNickName?nickName="+nickname;
+			});
+		});
 	})
 </script>
 	

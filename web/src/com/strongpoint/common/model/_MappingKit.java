@@ -16,7 +16,7 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 public class _MappingKit {
 
 	public static void mapping(ActiveRecordPlugin arp) {
-		arp.addMapping("nickName", "id", NickName.class);
+		arp.addMapping("nickName", "nickName", NickName.class);
 		arp.addMapping("team", "id", Team.class);
 		arp.addMapping("teamUser", "id", TeamUser.class);
 		arp.addMapping("user", "id", User.class);

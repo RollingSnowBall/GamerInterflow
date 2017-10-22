@@ -4,7 +4,7 @@
 		#for(x : NickNameList)
 			<div>
 				<input type="text" disable="disable" value="#(x.nickName)"/>
-				Time: <input type="text" value="time"/>
+				Time: <input type="text" name="time" value="#(x.time)"/>
 				<button >保存</button>
 			</div> 
 		#end
@@ -12,9 +12,11 @@
 	<script type="text/javaScript">
 	$(function(){
 		$.each($("#list>div"),function(index,value){
-			var nickname = $($(this).find("input")[0]).val();
-			var time = $($(this).find("input")[1]).val();
+			/* var nickname = $($(this).find("input")[0]).val();
+			var time = $($(this).find("input")[1]).val(); */
 			$($(value).find("button")).click(function(){
+				var nickname = $(this).prev("input").prev("input").val();
+				var time = $(this).prev("input").val();
 				window.location.href="/work/setGameTime?nickname="+nickname+"&time="+time;
 			});
 		});

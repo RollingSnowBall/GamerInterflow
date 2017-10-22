@@ -1,3 +1,10 @@
 #define createTeamPage()
-创建团队
+	<div id="list">
+		#for(x : NickNameList)
+			<div>
+				<input type="text" disable="disable" value="#(x.nickName)"/>
+				Time: <input type="text" name="time" value="#(x.time)"/>
+			</div> 
+		#end
+	</div>
 #end

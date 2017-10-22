@@ -9,15 +9,6 @@ import com.jfinal.plugin.activerecord.IBean;
 @SuppressWarnings({"serial", "unchecked"})
 public abstract class BaseNickName<M extends BaseNickName<M>> extends Model<M> implements IBean {
 
-	public M setId(java.lang.Integer id) {
-		set("id", id);
-		return (M)this;
-	}
-
-	public java.lang.Integer getId() {
-		return getInt("id");
-	}
-
 	public M setNickName(java.lang.String nickName) {
 		set("nickName", nickName);
 		return (M)this;
