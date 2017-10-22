@@ -36,4 +36,13 @@ public abstract class BaseNickName<M extends BaseNickName<M>> extends Model<M> i
 		return getInt("userId");
 	}
 
+	public M setTime(java.lang.String time) {
+		set("time", time);
+		return (M)this;
+	}
+
+	public java.lang.String getTime() {
+		return getStr("time");
+	}
+
 }

@@ -16,8 +16,7 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 public class _MappingKit {
 
 	public static void mapping(ActiveRecordPlugin arp) {
-		// Composite Primary Key order: id,userId
-		arp.addMapping("nickName", "id,userId", NickName.class);
+		arp.addMapping("nickName", "id", NickName.class);
 		arp.addMapping("team", "id", Team.class);
 		arp.addMapping("teamUser", "id", TeamUser.class);
 		arp.addMapping("user", "id", User.class);
