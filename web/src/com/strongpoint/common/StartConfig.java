@@ -1,6 +1,5 @@
 package com.strongpoint.common;
 
-import com.demo.blog.BlogController;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -58,8 +57,6 @@ public class StartConfig  extends JFinalConfig {
 	}
 	
 	public void configEngine(Engine me) {
-//		me.addSharedFunction("/common/_layout.html");
-//		me.addSharedFunction("/common/_paginate.html");
 		me.addSharedFunction("html/general/editorInfo.html");
 		me.addSharedFunction("html/general/editorGameTime.html");
 		me.addSharedFunction("html/general/createTeam.html");
