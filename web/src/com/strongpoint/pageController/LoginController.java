@@ -10,7 +10,7 @@ public class LoginController extends Controller  {
 	static LoginService service = new LoginService();
 	
 	public void index() {
-		render("login.html");
+		render("Login.html");
 	}
 	
 	public void addUser() throws Exception {
